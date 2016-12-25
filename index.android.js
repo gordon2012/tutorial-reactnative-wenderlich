@@ -1,9 +1,17 @@
 'use strict';
 
-var React = require('react');
-var ReactNative = require('react-native');
+import React, { Component } from 'react';
+import {
+  AppRegistry,
+  StyleSheet,
+  Navigator,
+  Text
+} from 'react-native';
+let { NavigationBar } = Navigator;
 
-var styles = ReactNative.StyleSheet.create({
+import SearchPage from './SearchPage';
+
+var styles = StyleSheet.create({
   text: {
     color: 'black',
     backgroundColor: 'white',
@@ -15,28 +23,23 @@ var styles = ReactNative.StyleSheet.create({
   }
 });
 
-class HelloWorld extends React.Component {
+class PropertyFinder extends Component {
   render() {
     return (
-      <ReactNative.Text style={styles.text}>Hello World (Again)</ReactNative.Text>
-    );
-  }
-}
-
-class PropertyFinder extends React.Component {
-  render() {
-    return (
-      <ReactNative.Navigator
+      <Navigator
         initialRoute={{ title: 'Property Finder', index: 0 }}
         renderScene={(route, navigator) =>
-          <HelloWorld />
+          <SearchPage />
         }
         navigationBar={
-          <ReactNative.Navigator.NavigationBar
+          <NavigationBar
             routeMapper={{
               LeftButton: () => null,
               RightButton: () => null,
-              Title: (route, navigator, index, navState) => <ReactNative.Text>Property Finder</ReactNative.Text>
+              Title: (route, navigator, index, navState) =>
+                <Text>
+                  Property Finder
+                </Text>
             }}
             style={{backgroundColor: '#e0e0e0'}}
           />
@@ -47,4 +50,4 @@ class PropertyFinder extends React.Component {
   }
 }
 
-ReactNative.AppRegistry.registerComponent('tutorialReactnativeWenderlich', function() { return PropertyFinder });
+AppRegistry.registerComponent('tutorialReactnativeWenderlich', function() { return PropertyFinder });
