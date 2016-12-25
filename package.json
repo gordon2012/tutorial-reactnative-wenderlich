@@ -4,7 +4,9 @@
 	"private": true,
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest"
+		"test": "jest",
+		"emu": "start C:\\Users\\Gordon\\AppData\\Local\\Android\\sdk\\tools\\emulator -avd Nexus_5_API_24",
+		"android": "react-native run-android"
 	},
 	"dependencies": {
 		"react": "15.4.1",
